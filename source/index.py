@@ -41,18 +41,18 @@ def compare_images(imageA, imageB, title):
 
 # load the images -- the original, the original + contrast,
 # and the original + photoshop
-original = cv2.imread("./data/images/original.png")
-contrast = cv2.imread("./data/images/contrast.png")
-shopped = cv2.imread("./data/images/photoshopped.png")
+imageFromAmazon = cv2.imread("./data/images/imageFromAmazon.png")
+imageFromShopify = cv2.imread("./data/images/imageFromShopify.png")
+randomImage = cv2.imread("./data/images/original.png")
 
 # convert the images to grayscale
-original = cv2.cvtColor(original, cv2.COLOR_BGR2GRAY)
-contrast = cv2.cvtColor(contrast, cv2.COLOR_BGR2GRAY)
-shopped = cv2.cvtColor(shopped, cv2.COLOR_BGR2GRAY)
+imageFromAmazon = cv2.cvtColor(imageFromAmazon, cv2.COLOR_BGR2GRAY)
+imageFromShopify = cv2.cvtColor(imageFromShopify, cv2.COLOR_BGR2GRAY)
+randomImage = cv2.cvtColor(randomImage, cv2.COLOR_BGR2GRAY)
 
 # initialize the figure
 fig = plt.figure("Images")
-images = ("Original", original), ("Contrast", contrast), ("Photoshopped", shopped)
+images = ("Image from Amazon", imageFromAmazon), ("Image From Shopify", imageFromShopify), ("Random Image", randomImage)
 
 # loop over the images
 for (i, (name, image)) in enumerate(images):
@@ -66,7 +66,7 @@ for (i, (name, image)) in enumerate(images):
 plt.show()
 
 # compare the images
-compare_images(original, original, "Original vs. Original")
-compare_images(original, contrast, "Original vs. Contrast")
-compare_images(original, shopped, "Original vs. Photoshopped")
+compare_images(imageFromAmazon, imageFromAmazon, "Image From Amazon vs. Image From Amazon")
+compare_images(imageFromAmazon, imageFromShopify, "Image From Amazon vs. Image From Shopify")
+compare_images(imageFromAmazon, randomImage, "Image From Amazon vs. Random Image")
 
